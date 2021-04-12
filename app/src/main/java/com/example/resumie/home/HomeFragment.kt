@@ -1,11 +1,11 @@
-package com.example.mycvmaker.home
+package com.example.resumie.home
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.example.mycvmaker.R
+import com.example.resumie.R
 
 class HomeFragment: Fragment() {
     override fun onCreateView(

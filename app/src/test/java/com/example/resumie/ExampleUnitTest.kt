@@ -1,4 +1,4 @@
-package com.example.mycvmaker
+package com.example.resumie
 
 import org.junit.Test
 

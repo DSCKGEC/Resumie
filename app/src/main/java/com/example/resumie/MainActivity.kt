@@ -1,8 +1,8 @@
-package com.example.mycvmaker
+package com.example.resumie
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mycvmaker.home.HomeFragment
+import com.example.resumie.home.HomeFragment
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
