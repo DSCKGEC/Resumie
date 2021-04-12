@@ -1,6 +1,6 @@
-# Submission or project name
+# Resumie
 
-[![Contributors](https://img.shields.io/github/contributors/dsckgec/project-template.svg)](https://github.com/dsckgec/project-template/graphs/contributors) [![Forks](https://img.shields.io/github/forks/dsckgec/project-template.svg)](https://github.com/dsckgec/project-template/network/members) [![Issues](https://img.shields.io/github/issues/dsckgec/project-template.svg)](https://github.com/dsckgec/project-template/issues) [![Pull Request](https://img.shields.io/github/issues-pr-closed-raw/dsckgec/project-template)](https://github.com/dsckgec/project-template/pulls)
+[![Contributors](https://img.shields.io/github/contributors/dsckgec/resumie.svg)](https://github.com/dsckgec/resumie/graphs/contributors) [![Forks](https://img.shields.io/github/forks/dsckgec/resumie.svg)](https://github.com/dsckgec/resumie/network/members) [![Issues](https://img.shields.io/github/issues/dsckgec/resumie.svg)](https://github.com/dsckgec/resumie/issues) [![Pull Request](https://img.shields.io/github/issues-pr-closed-raw/dsckgec/resumie)](https://github.com/dsckgec/resumie/pulls)
 
 Resumie is an android CV & Portfolio app. Now carry your resume with you wherever you go!
 
