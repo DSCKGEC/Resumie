@@ -2,8 +2,7 @@
 
 [![Contributors](https://img.shields.io/github/contributors/dsckgec/project-template.svg)](https://github.com/dsckgec/project-template/graphs/contributors) [![Forks](https://img.shields.io/github/forks/dsckgec/project-template.svg)](https://github.com/dsckgec/project-template/network/members) [![Issues](https://img.shields.io/github/issues/dsckgec/project-template.svg)](https://github.com/dsckgec/project-template/issues) [![Pull Request](https://img.shields.io/github/issues-pr-closed-raw/dsckgec/project-template)](https://github.com/dsckgec/project-template/pulls)
 
-
-A basic GitHub repository template for initializing open source projects on a single click.
+Resumie is an android CV & Portfolio app. Now carry your resume with you wherever you go!
 
 ## Contents
 
@@ -20,6 +19,8 @@ A basic GitHub repository template for initializing open source projects on a si
 
 ## Description
 
+Having your CV and portfolio with you wherever you go is incredible! Resumie will keep your personal details and create your professional resume of any kind just in a few minutes.
+
 ### What's the problem?
 
 ### How can this project help?
@@ -27,8 +28,11 @@ A basic GitHub repository template for initializing open source projects on a si
 ### The idea
 
 ## Project structure
-
 ```
+├── .github/            github related files like PR templates, contribution guidelines
+├── .gitignore          stores files and directories to be ignored in commits
+├── LICENSE             the open source license
+└── readme.md           details and instructions about the project go here
 ```
 
 ## Project roadmap
@@ -70,8 +74,8 @@ Please read [contributing.md](contributing.md) for details on our code of conduc
 
 ## Authors
 
-<a href="https://github.com/DSCKGEC/project-template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=DSCKGEC/project-template" />
+<a href="https://github.com/DSCKGEC/Resumie/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=DSCKGEC/Resumie" />
 </a>
 
 ## License
