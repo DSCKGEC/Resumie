@@ -11,5 +11,6 @@
     <color name="tint">#FFFFFFFF</color>
     <color name="nav_selected">#FDD77C</color>
     <color name="card_background">#FBFBFBFB</color>
+    <color name="cv_line">#E0E0E0</color>
 
 </resources>
