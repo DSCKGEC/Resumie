@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/item_card">
+    android:background="@drawable/item_card"
+    android:layout_marginTop="8dp">
 
     <ImageView
 
@@ -24,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:text="@string/author_name"
         android:textSize="16sp"
         android:textStyle="bold"
@@ -38,8 +39,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:lineSpacingExtra="4sp"
+        android:layout_marginBottom="16dp"
+        android:lineSpacingExtra="6sp"
         android:text="@string/text2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

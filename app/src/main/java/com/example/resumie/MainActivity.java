@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.resumie.CV.CVFragment;
 import com.example.resumie.home.HomeFragment;
+import com.example.resumie.portfolio.PortfolioFragment;
 import com.example.resumie.team.TeamFragment;
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +19,11 @@ public class MainActivity extends AppCompatActivity {
 //        setHomeFragment();
 //        setCVFragment();
           setTeamFragment();
+//        setPortfolioFragment();
+    }
+
+    void setPortfolioFragment(){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,new PortfolioFragment()).commit();
     }
 
     void setCVFragment(){

@@ -16,4 +16,7 @@
     <string name="user_icon">user icon</string>
     <string name="author_name">Author Name</string>
     <string name="author_description">Hello I am Mark I have made this app. I hope you will love it</string>
+    <string name="portfolio">Portfolio</string>
+    <string name="my_project_1">My project 1</string>
+    <string name="title_activity_bottom_nav">MainActivity</string>
 </resources>
