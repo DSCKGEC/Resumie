@@ -1,25 +1,48 @@
 package com.example.resumie;
 
+import android.app.Activity;
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.resumie.CV.CVFragment;
+import com.example.resumie.SideNavigation.MenuAdapter;
+import com.example.resumie.SideNavigation.MenuItem;
+import com.example.resumie.SideNavigation.MenuUtil;
 import com.example.resumie.home.HomeFragment;
 import com.example.resumie.portfolio.PortfolioFragment;
 import com.example.resumie.team.TeamFragment;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity implements ClickedCallback {
+
+
+    RecyclerView recyclerView;
+    MenuAdapter menuAdapter;
+    List<MenuItem> menu;
+    int selectedMenuPosition=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        getSupportActionBar().hide();
-//        setHomeFragment();
-//        setCVFragment();
-          setTeamFragment();
-//        setPortfolioFragment();
+        setSideNavigation();
+
+        setHomeFragment();
+    }
+
+    private void setSideNavigation() {
+        recyclerView = findViewById(R.id.recyclerview_nav);
+        List<MenuItem> menu;
+        menu= MenuUtil.getMenuList();
+        MenuAdapter menuAdapter=new MenuAdapter(menu);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(menuAdapter);
+
     }
 
     void setPortfolioFragment(){
@@ -36,5 +59,28 @@ public class MainActivity extends AppCompatActivity {
 
     void setTeamFragment(){
         getSupportFragmentManager().beginTransaction().replace(R.id.container,new TeamFragment()).commit();
+    }
+
+    @Override
+    public void onSideMenuItemClick(int i) {
+
+        switch (menu.get(i).getCode()) {
+
+            case MenuUtil.HOME_FRAGMENT : setHomeFragment();
+                break;
+            case MenuUtil.CV_FRAGMENT : setCVFragment();
+                break;
+            case MenuUtil.TEAM_FRAGMENT: setTeamFragment();
+                break;
+            case MenuUtil.PORTFOLIO_FRAGMENT:setPortfolioFragment();
+                break;
+            default: setHomeFragment();
+        }
+
+        menu.get(selectedMenuPosition).setSelected(false);
+        menu.get(i).setSelected(true);
+        selectedMenuPosition = i ;
+        menuAdapter.notifyDataSetChanged();
+
     }
 }

@@ -19,4 +19,7 @@
     <string name="portfolio">Portfolio</string>
     <string name="my_project_1">My project 1</string>
     <string name="title_activity_bottom_nav">MainActivity</string>
+    <string name="menu_icon">menu icon</string>
+    <string name="menu_selected">menu selected</string>
+    <string name="profile_icon">profile icon</string>
 </resources>

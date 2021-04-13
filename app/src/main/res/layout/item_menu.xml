@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:src="@drawable/ic_baseline_home_24"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/menuicon"
+        android:contentDescription="@string/menu_icon"
+        app:tint="@color/light_menu_icon"
+        android:padding="10dp"/>
+
+    <ImageView
+        android:src="@drawable/oval"
+        android:id="@+id/menu_selected"
+        android:layout_width="6dp"
+        android:layout_height="6dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="@string/menu_selected" />
+</LinearLayout>
