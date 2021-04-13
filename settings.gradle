@@ -1,2 +1,2 @@
 include ':app'
-rootProject.name = "MyCVMaker"
+rootProject.name = "Resumie"
