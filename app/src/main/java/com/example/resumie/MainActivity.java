@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.resumie.CV.CVFragment;
 import com.example.resumie.home.HomeFragment;
+import com.example.resumie.team.TeamFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,7 +16,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 //        getSupportActionBar().hide();
 //        setHomeFragment();
-          setCVFragment();
+//        setCVFragment();
+          setTeamFragment();
     }
 
     void setCVFragment(){
@@ -24,5 +26,9 @@ public class MainActivity extends AppCompatActivity {
 
     void setHomeFragment(){
         getSupportFragmentManager().beginTransaction().replace(R.id.container,new HomeFragment()).commit();
+    }
+
+    void setTeamFragment(){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,new TeamFragment()).commit();
     }
 }

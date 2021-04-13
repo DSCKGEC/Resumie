@@ -10,4 +10,10 @@
     <string name="skill_despcription">Communication skills.Computer skills.People skills.Leadership skills.Organizational skills.Time management skills.Collaboration skills.Problem-solving skills.</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="mark">mark</string>
+    <string name="professional_experience">Professional Experience</string>
+    <string name="our_team">Our Team</string>
+    <string name="user_icon">user icon</string>
+    <string name="author_name">Author Name</string>
+    <string name="author_description">Hello I am Mark I have made this app. I hope you will love it</string>
 </resources>
