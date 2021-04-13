@@ -12,7 +12,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getSupportActionBar().hide();
+//        getSupportActionBar().hide();
+        setHomeFragment();
     }
     void setHomeFragment(){
         getSupportFragmentManager().beginTransaction().replace(R.id.container,new HomeFragment()).commit();
