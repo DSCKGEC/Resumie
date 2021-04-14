@@ -8,7 +8,6 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.resumie.ClickedCallback;
 import com.example.resumie.R;
 
 import java.util.List;
@@ -16,9 +15,10 @@ import java.util.List;
 public class MenuAdapter  extends RecyclerView.Adapter<MenuAdapter.MenuViewHolder> {
 
     List<MenuItem> mdata;
-    static ClickedCallback listener;
-    public MenuAdapter(List<MenuItem> mdata) {
+    ClickedCallback listener;
+    public MenuAdapter(List<MenuItem> mdata, ClickedCallback listener) {
         this.mdata = mdata;
+        this.listener=listener;
     }
 
     @NonNull
@@ -35,7 +35,7 @@ public class MenuAdapter  extends RecyclerView.Adapter<MenuAdapter.MenuViewHolde
             holder.selected.setVisibility(View.VISIBLE);
         }
         else
-            holder.selected.setVisibility(View.INVISIBLE);
+            holder.selected.setVisibility(View.GONE);
     }
 
     @Override
@@ -43,7 +43,7 @@ public class MenuAdapter  extends RecyclerView.Adapter<MenuAdapter.MenuViewHolde
         return mdata.size();
     }
 
-    public static class MenuViewHolder extends RecyclerView.ViewHolder {
+    public class MenuViewHolder extends RecyclerView.ViewHolder {
 
         ImageView icon,selected;
 

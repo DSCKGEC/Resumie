@@ -1,10 +1,10 @@
 package com.example.resumie;
 
-import android.app.Activity;
+
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -15,6 +15,7 @@ import com.example.resumie.SideNavigation.MenuUtil;
 import com.example.resumie.home.HomeFragment;
 import com.example.resumie.portfolio.PortfolioFragment;
 import com.example.resumie.team.TeamFragment;
+import com.example.resumie.SideNavigation.ClickedCallback;
 
 import java.util.List;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         setSideNavigation();
 
         setHomeFragment();
@@ -37,9 +39,8 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
 
     private void setSideNavigation() {
         recyclerView = findViewById(R.id.recyclerview_nav);
-        List<MenuItem> menu;
         menu= MenuUtil.getMenuList();
-        MenuAdapter menuAdapter=new MenuAdapter(menu);
+        menuAdapter=new MenuAdapter(menu,this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(menuAdapter);
 
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
                 break;
             case MenuUtil.TEAM_FRAGMENT: setTeamFragment();
                 break;
-            case MenuUtil.PORTFOLIO_FRAGMENT:setPortfolioFragment();
+            case MenuUtil.PORTFOLIO_FRAGMENT: setPortfolioFragment();
                 break;
             default: setHomeFragment();
         }
