@@ -22,4 +22,5 @@
     <string name="menu_icon">menu icon</string>
     <string name="menu_selected">menu selected</string>
     <string name="profile_icon">profile icon</string>
+    <string name="app_icon">app icon</string>
 </resources>

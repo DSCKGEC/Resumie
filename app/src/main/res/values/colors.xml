@@ -13,5 +13,6 @@
     <color name="card_background">#FBFBFBFB</color>
     <color name="cv_line">#E0E0E0</color>
     <color name="light_menu_icon">#AFAFAF</color>
+    <color name="my_yellow">#FAF3C0</color>
 
 </resources>
