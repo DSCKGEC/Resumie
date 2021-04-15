@@ -31,17 +31,21 @@
         app:layout_constraintStart_toStartOf="@id/imageView"
         app:layout_constraintTop_toBottomOf="@id/imageView" />
 
-    <TextView
-        android:textStyle="bold"
+    <EditText
+        android:background="@null"
         android:id="@+id/cv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:text="@string/work_experience"
+        android:hint="@string/senior_web_developer"
+        android:textStyle="bold"
+        android:inputType="text"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
+    <EditText
+        android:background="@null"
+        android:textSize="16dp"
         android:id="@+id/cv_description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -49,9 +53,9 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
-        android:lineSpacingExtra="6sp"
+        android:lineSpacingExtra="1sp"
         android:padding="8dp"
-        android:text="@string/text2"
+        android:hint="@string/text2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"

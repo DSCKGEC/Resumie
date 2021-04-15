@@ -23,4 +23,8 @@
     <string name="menu_selected">menu selected</string>
     <string name="profile_icon">profile icon</string>
     <string name="app_icon">app icon</string>
+    <string name="your_name">Your Name</string>
+    <string name="education">Education</string>
+    <string name="senior_web_developer">Senior Web Developer</string>
+    <string name="save">SAVE</string>
 </resources>

@@ -34,13 +34,11 @@ public class CVFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerview_cv);
 
         items=new ArrayList<>();
-        items.add(new CVitem("Date1",getString(R.string.skill_despcription)));
-        items.add(new CVitem("Date2",getString(R.string.skill_despcription)));
-        items.add(new CVitem("Date3",getString(R.string.skill_despcription)));
-        items.add(new CVitem("Date4",getString(R.string.skill_despcription)));
-        items.add(new CVitem("Date5",getString(R.string.skill_despcription)));
-        items.add(new CVitem("Date6",getString(R.string.skill_despcription)));
-        items.add(new CVitem("Date7",getString(R.string.skill_despcription)));
+        items.add(new CVitem(getString(R.string.senior_web_developer),getString(R.string.text2)));
+        items.add(new CVitem(getString(R.string.senior_web_developer),getString(R.string.text2)));
+        items.add(new CVitem(getString(R.string.senior_web_developer),getString(R.string.text2)));
+        items.add(new CVitem(getString(R.string.senior_web_developer),getString(R.string.text2)));
+        items.add(new CVitem(getString(R.string.senior_web_developer),getString(R.string.text2)));
 
         cvAdapter=new CVAdapter(items);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
