@@ -8,9 +8,10 @@
 
 
     <Button
-        android:id="@+id/pdfcreator"
+        android:id="@+id/pdfcreator1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="createMyPDF"
         android:text="@string/create_pdf"
         android:textColor="@color/my_yellow"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -19,7 +20,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/TestText"
+        android:id="@+id/TestText1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -27,7 +28,7 @@
         android:hint="@string/testtext"
         android:importantForAutofill="no"
         android:inputType="textMultiLine"
-        app:layout_constraintBottom_toTopOf="@+id/pdfcreator"
+        app:layout_constraintBottom_toTopOf="@+id/pdfcreator1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

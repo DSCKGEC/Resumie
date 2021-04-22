@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.resumie.CV.CVFragment;
+import com.example.resumie.PDF.PDFFragment;
 import com.example.resumie.SideNavigation.MenuAdapter;
 import com.example.resumie.SideNavigation.MenuItem;
 import com.example.resumie.SideNavigation.MenuUtil;
@@ -62,6 +63,10 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
         getSupportFragmentManager().beginTransaction().replace(R.id.container,new TeamFragment()).commit();
     }
 
+    void setPDFFragment(){
+        getSupportFragmentManager().beginTransaction().replace(R.id.container,new PDFFragment()).commit();
+    }
+
     @Override
     public void onSideMenuItemClick(int i) {
 
@@ -74,6 +79,8 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
             case MenuUtil.TEAM_FRAGMENT: setTeamFragment();
                 break;
             case MenuUtil.PORTFOLIO_FRAGMENT: setPortfolioFragment();
+                break;
+            case MenuUtil.PDF_FRAGMENT: setPDFFragment();
                 break;
             default: setHomeFragment();
         }

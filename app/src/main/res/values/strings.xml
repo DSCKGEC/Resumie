@@ -27,4 +27,6 @@
     <string name="education">Education</string>
     <string name="senior_web_developer">Senior Web Developer</string>
     <string name="save">SAVE</string>
+    <string name="create_pdf">Create Pdf</string>
+    <string name="testtext">TestText</string>
 </resources>
