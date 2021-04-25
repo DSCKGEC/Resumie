@@ -27,6 +27,10 @@ public class HomeFragment extends Fragment {
     TextView diffname,diffdesignation;
     Button button;
 
+    // File modification (1) started here
+    private SharedPrefManager sharedPrefManager;
+    // File modification (1) ended here    
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -63,4 +67,99 @@ public class HomeFragment extends Fragment {
         });
         return view;
     }
+    
+    // File modification (2) started here
+    
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        name = view.findViewById(R.id.name);
+        designation = view.findViewById(R.id.designation);
+        selfdescription = view.findViewById(R.id.self_description);
+        edudescription = view.findViewById(R.id.edu_description);
+        skilldescription = view.findViewById(R.id.skill_description);
+
+        sharedPrefManager = new SharedPrefManager(getActivity());
+
+        name.setText(sharedPrefManager.getHomeData().getName());
+        designation.setText(sharedPrefManager.getHomeData().getDesignation());
+        selfdescription.setText(sharedPrefManager.getHomeData().getSelf());
+        edudescription.setText(sharedPrefManager.getHomeData().getEdu());
+        skilldescription.setText(sharedPrefManager.getHomeData().getSkill());
+
+        //as you don't have any button, then you can save the data, while editing
+        name.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                sharedPrefManager.setHomeData(name.getText().toString().trim() , 1);
+                //1 means name, you can use any other methods too
+            }
+            @Override
+            public void afterTextChanged(Editable s) {}
+        });
+        designation.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                sharedPrefManager.setHomeData(designation.getText().toString().trim() , 2);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        selfdescription.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                sharedPrefManager.setHomeData(selfdescription.getText().toString().trim() , 3);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        edudescription.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                sharedPrefManager.setHomeData(edudescription.getText().toString().trim() , 4);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+        skilldescription.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                sharedPrefManager.setHomeData(skilldescription.getText().toString().trim() , 5);
+            }
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+    }
+
+    // File modification (2) ended here
+    
 }
