@@ -29,4 +29,12 @@
     <string name="save">SAVE</string>
     <string name="create_pdf">Create Pdf</string>
     <string name="testtext">TestText</string>
+    <string name="your_designation">Your Designation</string>
+    <string name="your_job_description">Your Job Description</string>
+    <string name="your_education_history">Your Education History</string>
+    <string name="your_skills">Your Skills</string>
+    <string name="your_professional_experience">Your Professional Experience</string>
+    <string name="projects">Projects</string>
+    <string name="address">Address</string>
+    <string name="social_handles">Social Handles</string>
 </resources>
