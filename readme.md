@@ -21,7 +21,7 @@ Resumie is an android CV & Portfolio app. Now carry your resume with you whereve
 Having your CV and portfolio with you wherever you go is incredible! Resumie will keep your personal details and create your professional resume of any kind just in a few minutes.
 
 ### What's the problem?
-Most of us often forget to carry our CV and portfolio along with us. It becomes really useful if we have an app which can generate our resume within few minutes and we don't miss any opportunity coming in our way!
+Most of us often forget to carry our CV and portfolio along with us. It becomes really useful if we have an app that can generate our resume within few minutes and we don't miss any opportunity coming in our way!
 
 ### How can this project help?
 Resumie will help its users never miss an opportunity. An app specially designed to create your CV and store your projects as well.
@@ -39,7 +39,7 @@ The project currently does the following things.
 See below for our future steps.
 
 - Saving the state of the fragments
-- Transfering data of fragments to an activity all at once 
+- Transferring data of fragments to activity all at once 
 - Creating a design for the resume
 
 ## Getting started
@@ -63,7 +63,7 @@ Below are a few prerequisites and installation guides:
 
 The best way to learn the following is to google each and everything!
 
--   Very basic understanding of git and github:
+-   Very basic understanding of Git and GitHub:
 
     -   What are repositories (local - remote - upstream), issues, pull requests
     -   How to clone a repository, how to fork a repository, how to set upstreams
@@ -72,13 +72,13 @@ The best way to learn the following is to google each and everything!
 - For Android:
 
   - [Getting Started with Java](https://www.w3schools.com/java/java_getstarted.asp)
-  - [Android Dvelopers Guide](https://developer.android.com/guide)
+  - [Android Developers Guide](https://developer.android.com/guide)
 
 ### Installing
 
-A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord channel.
+A step-by-step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord channel.
 
-- Fork and clone the repository followed by opening the project in Android Studio.
+- Fork and clone the repository.
 - Open Android Studio ---> Open Project ---> Choose Resumie.
 - Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
 
