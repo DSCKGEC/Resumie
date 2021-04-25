@@ -7,7 +7,6 @@ Resumie is an android CV & Portfolio app. Now carry your resume with you whereve
 ## Contents
 
 1. [Description](#description)
-1. [Project structure](#project-structure)
 1. [Project roadmap](#project-roadmap)
 1. [Getting started](#getting-started)
 1. [Live demo](#live-demo)
@@ -22,51 +21,77 @@ Resumie is an android CV & Portfolio app. Now carry your resume with you whereve
 Having your CV and portfolio with you wherever you go is incredible! Resumie will keep your personal details and create your professional resume of any kind just in a few minutes.
 
 ### What's the problem?
+Most of us often forget to carry our CV and portfolio along with us. It becomes really useful if we have an app which can generate our resume within few minutes and we don't miss any opportunity coming in our way!
 
 ### How can this project help?
+Resumie will help its users never miss an opportunity. An app specially designed to create your CV and store your projects as well.
 
 ### The idea
-
-## Project structure
-```
-├── .github/            github related files like PR templates, contribution guidelines
-├── .gitignore          stores files and directories to be ignored in commits
-├── LICENSE             the open source license
-└── readme.md           details and instructions about the project go here
-```
+The app is based on the idea of using simple fragments with layouts and rendering the input data by users to a PDF Document created in a different activity.
 
 ## Project roadmap
 
 The project currently does the following things.
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Takes input from User
+- Creates a PDF Document
 
 See below for our future steps.
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Saving the state of the fragments
+- Transfering data of fragments to an activity all at once 
+- Creating a design for the resume
 
 ## Getting started
-
+Everyone is welcomed to contribute to our project. Mentioning in bold, **you do not need to know the tech stack and tools beforehand to be a part of our project**. This is a learn-and-build projects where the contributors build alongside learning the various concepts and technologies involved.
+Below are a few prerequisites and installation guides:
 
 ### Prerequisites
 
+1. Basic Understanding of Programming Language (preferably, JAVA)
+2. OOPS
+3. Concepts of Fragments and Activity lifestyle
+4. Using PDFDocument to design the PDF
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running.
+#### Softwares needed
 
+- [Android Studio](https://developer.android.com/studio?gclid=Cj0KCQjw1PSDBhDbARIsAPeTqrec4clA-r8NfjrJtz3aKnvme0feBN3F534uGCvqcxoclrQBFuQfANQaAgMPEALw_wcB&gclsrc=aw.ds)
+
+#### Knowledge needed
+
+The best way to learn the following is to google each and everything!
+
+-   Very basic understanding of git and github:
+
+    -   What are repositories (local - remote - upstream), issues, pull requests
+    -   How to clone a repository, how to fork a repository, how to set upstreams
+    -   Adding, committing, pulling, pushing changes to remote repositories
+
+- For Android:
+
+  - [Getting Started with Java](https://www.w3schools.com/java/java_getstarted.asp)
+  - [Android Dvelopers Guide](https://developer.android.com/guide)
+
+### Installing
+
+A step by step series of instructions that tell you how to get the project running locally is given below. Google every issue you face following the below instructions or just ask us in our Discord channel.
+
+- Fork and clone the repository followed by opening the project in Android Studio.
+- Open Android Studio ---> Open Project ---> Choose Resumie.
+- Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
 
 ## Live demo
 
 
+
+
 ## Built with
 
-- []()
-- []()
+- Java
+- XML
+- Android Studio
 
 ## Contributing
 
@@ -83,5 +108,4 @@ Please read [contributing.md](contributing.md) for details on our code of conduc
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
-
-- 
+ 
