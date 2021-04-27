@@ -18,6 +18,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.resumie.SharedPrefManager.SharedPrefManager;
+
 import java.io.File;
 import java.io.FileOutputStream;
 
@@ -37,6 +39,7 @@ public class PDFActivity extends AppCompatActivity {
     private EditText address;
     Button button;
 
+    private SharedPrefManager sharedPrefManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,18 @@ public class PDFActivity extends AppCompatActivity {
         project=findViewById(R.id.projects);
         profession=findViewById(R.id.profession);
         button=findViewById(R.id.pdfcreator1);
+
+        sharedPrefManager = new SharedPrefManager(PDFActivity.this);
+
+        name.setText(sharedPrefManager.getHomeData().getName());
+//        designation.setText(sharedPrefManager.getHomeData().getDesignation());
+//        selfdescription.setText(sharedPrefManager.getHomeData().getSelf());
+//        edudescription.setText(sharedPrefManager.getHomeData().getEdu());
+//        skilldescription.setText(sharedPrefManager.getHomeData().getSkill());
+        
+        
+        
+        
         ActivityCompat.requestPermissions(PDFActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
         button.setOnClickListener(new View.OnClickListener() {

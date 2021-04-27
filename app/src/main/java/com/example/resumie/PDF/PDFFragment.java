@@ -28,7 +28,6 @@ public class PDFFragment extends Fragment {
     Button button;
 
     public PDFFragment() {
-        // Required empty public constructor
     }
 
     @Override
@@ -45,7 +44,6 @@ public class PDFFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 makepdf();
-                Toast.makeText(getActivity(),"Created", Toast.LENGTH_SHORT).show();
             }
 
             private void makepdf() {
