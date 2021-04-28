@@ -25,31 +25,29 @@ android:fillViewport="true">
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/projects" />
 
-    <EditText
+    <TextView
         android:id="@+id/name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:hint="@string/name"/>
 
-    <EditText
+    <TextView
         android:id="@+id/designation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name"
         android:hint="@string/your_designation"/>
 
-    <EditText
+    <TextView
         android:id="@+id/job_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,12 +57,11 @@ android:fillViewport="true">
         android:ems="10"
         android:gravity="start|top"
         android:hint="@string/your_job_description"
-        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/designation" />
 
-    <EditText
+    <TextView
         android:id="@+id/edu_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -73,13 +70,12 @@ android:fillViewport="true">
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="@string/your_education_history"
         app:layout_constraintTop_toBottomOf="@+id/job_description" />
 
-    <EditText
+    <TextView
         android:id="@+id/skill_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -88,33 +84,31 @@ android:fillViewport="true">
         android:layout_marginEnd="32dp"
         android:ems="10"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:hint="@string/your_skills"
         app:layout_constraintTop_toBottomOf="@+id/edu_description" />
 
 
-    <EditText
+    <TextView
         android:id="@+id/profession"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:inputType="textMultiLine"
         android:hint="@string/your_professional_experience"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/skill_description" />
-    <EditText
+
+    <TextView
         android:id="@+id/projects"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
-        android:inputType="textMultiLine"
         android:hint="@string/projects"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,7 +124,6 @@ android:fillViewport="true">
         android:ems="10"
         android:hint="@string/address"
         android:gravity="start|top"
-        android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -141,7 +134,6 @@ android:fillViewport="true">
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:inputType="textPersonName"
         android:hint="@string/social_handles"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/address" />

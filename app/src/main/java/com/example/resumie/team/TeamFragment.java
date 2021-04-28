@@ -42,13 +42,7 @@ public class TeamFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerview_team);
         items=new ArrayList<>();
-        items.add(new TeamItem(getString(R.string.author_name),getString(R.string.author_description),R.drawable.user));
-        items.add(new TeamItem(getString(R.string.author_name),getString(R.string.author_description),R.drawable.user));
-        items.add(new TeamItem(getString(R.string.author_name),getString(R.string.author_description),R.drawable.user));
-        items.add(new TeamItem(getString(R.string.author_name),getString(R.string.author_description),R.drawable.user));
-        items.add(new TeamItem(getString(R.string.author_name),getString(R.string.author_description),R.drawable.user));
-        items.add(new TeamItem(getString(R.string.author_name),getString(R.string.author_description),R.drawable.user));
-
+        items.add(new TeamItem(getString(R.string.Adrishyantee),getString(R.string.Adridescription),R.drawable.adri));
         teamAdapter=new TeamAdapter(items);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
         recyclerView.setAdapter(teamAdapter);

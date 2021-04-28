@@ -16,6 +16,7 @@ import android.os.Environment;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.resumie.SharedPrefManager.SharedPrefManager;
@@ -28,15 +29,9 @@ import static java.util.jar.Pack200.Packer.ERROR;
 
 public class PDFActivity extends AppCompatActivity {
 
-    private EditText name;
-    private EditText designation;
-    private EditText job;
-    private EditText education;
-    private EditText skill;
-    private EditText project;
-    private EditText profession;
-    private EditText social;
-    private EditText address;
+    private TextView name, designation, job, education, skill, project, profession;
+    private EditText social , address;
+
     Button button;
 
     private SharedPrefManager sharedPrefManager;
@@ -61,10 +56,10 @@ public class PDFActivity extends AppCompatActivity {
         sharedPrefManager = new SharedPrefManager(PDFActivity.this);
 
         name.setText(sharedPrefManager.getHomeData().getName());
-//        designation.setText(sharedPrefManager.getHomeData().getDesignation());
-//        selfdescription.setText(sharedPrefManager.getHomeData().getSelf());
-//        edudescription.setText(sharedPrefManager.getHomeData().getEdu());
-//        skilldescription.setText(sharedPrefManager.getHomeData().getSkill());
+        designation.setText(sharedPrefManager.getHomeData().getDesignation());
+        job.setText(sharedPrefManager.getHomeData().getSelf());
+        education.setText(sharedPrefManager.getHomeData().getEdu());
+        skill.setText(sharedPrefManager.getHomeData().getSkill());
         
         
         

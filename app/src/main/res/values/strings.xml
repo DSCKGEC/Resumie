@@ -15,7 +15,6 @@
     <string name="our_team">Our Team</string>
     <string name="user_icon">user icon</string>
     <string name="author_name">Author Name</string>
-    <string name="author_description">Hello I am Mark I have made this app. I hope you will love it</string>
     <string name="portfolio">Portfolio</string>
     <string name="my_project_1">My project 1</string>
     <string name="title_activity_bottom_nav">MainActivity</string>
@@ -36,5 +35,9 @@
     <string name="your_professional_experience">Your Professional Experience</string>
     <string name="projects">Projects</string>
     <string name="address">Address</string>
+    <string name="Adrishyantee">Adrishyantee Maiti</string>
+    <string name="Adridescription">"Hello, I am Adrishyantee and I have built the app for users like you so that you never miss an opportunity coming your way! If you like to contribute to this app, make sure you check out our GitHub Repository."</string>
     <string name="social_handles">Social Handles</string>
+    <string name="author_description">Meet our Team who has built this app. Our app is an open source project and all sorts of improvements are welcomed.</string>
+    <string name="go_back">Go Back</string>
 </resources>
