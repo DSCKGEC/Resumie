@@ -1,12 +1,22 @@
 package com.example.resumie.portfolio;
 
-public class PortfolioItem {
+import java.io.Serializable;
+
+public class PortfolioItem implements Serializable {
     private String title,description;
     private int image;
 
-    public PortfolioItem() {
+    public PortfolioItem(){
     }
 
+    public PortfolioItem(int image) {
+        this.image = image;
+    }
+
+    public PortfolioItem(int image, String title) {
+        this.image = image;
+        this.title = title;
+    }
     public PortfolioItem(String title, String description, int image) {
         this.title = title;
         this.description = description;

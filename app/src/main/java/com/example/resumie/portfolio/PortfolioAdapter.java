@@ -9,6 +9,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.resumie.R;
 
 import java.util.List;
@@ -16,9 +17,11 @@ import java.util.List;
 public class PortfolioAdapter extends  RecyclerView.Adapter<PortfolioAdapter.PortfolioHolder> {
 
     List<PortfolioItem> mdata;
+    PortfolioCallback listener;
 
-    public PortfolioAdapter(List<PortfolioItem> mdata) {
+    public PortfolioAdapter(List<PortfolioItem> mdata,PortfolioCallback listener) {
         this.mdata = mdata;
+        this.listener = listener;
     }
 
     @NonNull
@@ -30,7 +33,7 @@ public class PortfolioAdapter extends  RecyclerView.Adapter<PortfolioAdapter.Por
 
     @Override
     public void onBindViewHolder(@NonNull PortfolioHolder holder, int position) {
-        holder.position.setText(String.valueOf(position));
+        Glide.with(holder.itemView.getContext()).load(mdata.get(position).getImage()).into(holder.projectimg);
     }
 
     @Override
@@ -38,16 +41,20 @@ public class PortfolioAdapter extends  RecyclerView.Adapter<PortfolioAdapter.Por
         return mdata.size();
     }
 
-    public static class PortfolioHolder extends RecyclerView.ViewHolder {
+    public class PortfolioHolder extends RecyclerView.ViewHolder {
 
-        TextView position;
+        ImageView projectimg;
 
         public PortfolioHolder(@NonNull View itemView) {
             super(itemView);
 
-            position= itemView.findViewById(R.id.portfolio_text);
-
-
+            projectimg = itemView.findViewById(R.id.item_portfolio_img);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    listener.onPortfolioItemClick(getAdapterPosition());
+                }
+            });
         }
       }
     }

@@ -19,14 +19,15 @@ import com.example.resumie.R;
 import com.example.resumie.team.TeamAdapter;
 import com.example.resumie.team.TeamItem;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PortfolioFragment extends Fragment {
+public class PortfolioFragment extends Fragment implements PortfolioCallback {
 
     RecyclerView recyclerView;
     PortfolioAdapter portfolioAdapter;
-    List<PortfolioItem> mdata;
+    public List<PortfolioItem> mdata;
 
     public PortfolioFragment() {
         // Required empty public constructor
@@ -36,7 +37,6 @@ public class PortfolioFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_portfolio, container, false);
     }
 
@@ -45,15 +45,33 @@ public class PortfolioFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerview_portfolio);
         mdata=new ArrayList<>();
-        mdata.add(new PortfolioItem());
-        mdata.add(new PortfolioItem());
-        mdata.add(new PortfolioItem());
-        mdata.add(new PortfolioItem());
-        mdata.add(new PortfolioItem());
-        mdata.add(new PortfolioItem());
+        mdata.add(new PortfolioItem(R.drawable.astro));
+        mdata.add(new PortfolioItem(R.drawable.astro));
+        mdata.add(new PortfolioItem(R.drawable.astro));
+        mdata.add(new PortfolioItem(R.drawable.astro));
+        mdata.add(new PortfolioItem(R.drawable.astro));
+        mdata.add(new PortfolioItem(R.drawable.astro));
 
-        portfolioAdapter=new PortfolioAdapter(mdata);
+
+
+
+        portfolioAdapter=new PortfolioAdapter(mdata,this);
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),3));
         recyclerView.setAdapter(portfolioAdapter);
+    }
+
+    @Override
+    public void onPortfolioItemClick(int pos) {
+
+
+        PortfolioDetailsFragment portfolioDetailsFragment =
+                new PortfolioDetailsFragment();
+
+
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("object", mdata.get(pos));
+        portfolioDetailsFragment.setArguments(bundle);
+
+        portfolioDetailsFragment.show(getActivity().getSupportFragmentManager(),"tagname");
     }
 }

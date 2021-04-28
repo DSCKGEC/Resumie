@@ -40,4 +40,5 @@
     <string name="social_handles">Social Handles</string>
     <string name="author_description">Meet our Team who has built this app. Our app is an open source project and all sorts of improvements are welcomed.</string>
     <string name="go_back">Go Back</string>
+    <string name="project_name">Project Name</string>
 </resources>
