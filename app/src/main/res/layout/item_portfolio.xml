@@ -7,7 +7,7 @@
     android:layout_height="100dp"
     android:clickable="true"
     android:foreground="?android:selectableItemBackground"
-    android:backgroundTint="@color/my_yellow">
+    android:backgroundTint="@color/background_light">
 
 
     <ImageView
