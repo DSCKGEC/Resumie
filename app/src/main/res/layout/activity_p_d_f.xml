@@ -9,7 +9,8 @@ android:fillViewport="true">
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".PDF.PDFFragment">
+    tools:context=".PDF.PDFFragment"
+    android:background="@color/background_light">
 
 
     <Button
@@ -18,7 +19,8 @@ android:fillViewport="true">
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         android:text="@string/create_pdf"
-        android:textColor="@color/my_yellow"
+        android:textColor="@color/grey"
+        android:backgroundTint="@color/my_yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
