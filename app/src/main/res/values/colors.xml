@@ -6,13 +6,16 @@
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
+    <color name="grey">#474747</color>
     <color name="white">#FFFFFFFF</color>
     <color name="background_light">#FFFFFF</color>
     <color name="tint">#FFFFFFFF</color>
     <color name="nav_selected">#FB8C00</color>
     <color name="card_background">#FBFBFBFB</color>
-    <color name="cv_line">#E0E0E0</color>
-    <color name="light_menu_icon">#AFAFAF</color>
+    <!--<color name="cv_line">#E0E0E0</color>-->
+    <color name="cv_line">@color/grey</color>
+    <!--<color name="light_menu_icon">#AFAFAF</color>-->
+    <color name="light_menu_icon">@color/grey</color>
     <color name="my_yellow">#FFF083</color>
 
 </resources>

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PDF.PDFFragment">
+    tools:context=".PDF.PDFFragment"
+    android:background="@color/my_yellow">
 
 
     <Button
@@ -15,6 +16,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/create_pdf"
         android:textColor="@color/my_yellow"
+        android:backgroundTint="@color/grey"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,6 +28,7 @@
         android:layout_marginEnd="16dp"
         android:text="@string/go_back"
         android:textColor="@color/my_yellow"
+        android:backgroundTint="@color/grey"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
