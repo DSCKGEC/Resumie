@@ -9,7 +9,7 @@ Resumie is an android CV & Portfolio app. Now carry your resume with you whereve
 1. [Description](#description)
 1. [Project roadmap](#project-roadmap)
 1. [Getting started](#getting-started)
-1. [Live demo](#live-demo)
+1. [How the app looks](#how-the-app-looks)
 1. [Built with](#built-with)
 1. [Contributing](#contributing)
 1. [Authors](#authors)
@@ -82,10 +82,14 @@ A step-by-step series of instructions that tell you how to get the project runni
 - Open Android Studio ---> Open Project ---> Choose Resumie.
 - Wait for the gradle sync to finish and click the play button to install the app on your local device / emulator.
 
-## Live demo
+## How the app looks
 
-
-
+<img src="https://user-images.githubusercontent.com/73780844/117529384-e98ac980-aff4-11eb-9afe-7f6213ea55f5.jpeg" width="200" height="400">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73780844/117529386-ea236000-aff4-11eb-8fae-7e9326267a17.jpeg" width="200" height="400">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73780844/117529387-eb548d00-aff4-11eb-944a-9f289af218e7.jpeg" width="200" height="400">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73780844/117529380-e68fd900-aff4-11eb-8f7b-0796378bd756.jpeg" width="200" height="400">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73780844/117529382-e8599c80-aff4-11eb-8897-83abf7a03545.jpeg" width="200" height="400">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="https://user-images.githubusercontent.com/73780844/117529383-e8f23300-aff4-11eb-808c-5b2ae1398b7c.jpeg" width="180" height="600">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
 ## Built with
 
