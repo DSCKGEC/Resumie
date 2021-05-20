@@ -7,13 +7,23 @@ public class UserModel {
     private String self;
     private String edu;
     private String skill;
+    private String profileImage;
 
-    public UserModel(String name, String designation, String self, String edu, String skill) {
+    public UserModel(String name, String designation, String self, String edu, String skill, String profileImage) {
         this.name = name;
         this.designation = designation;
         this.self = self;
         this.edu = edu;
         this.skill = skill;
+        this.profileImage = profileImage;
+    }
+
+    public String getProfileImage() {
+        return profileImage;
+    }
+
+    public void setProfileImage(String profileImage) {
+        this.profileImage = profileImage;
     }
 
     public String getName() {

@@ -3,6 +3,7 @@ package com.example.resumie.SharedPrefManager;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.example.resumie.R;
 import com.example.resumie.UserModel.UserModel;
 
 public class SharedPrefManager {
@@ -29,6 +30,9 @@ public class SharedPrefManager {
         }else if(num == 5) {
             editor.putString("SKILL", str);
         }
+        else if(num == 6) {
+            editor.putString("DISPLAY_IMAGE", str);
+        }
         editor.apply();
     }
 
@@ -39,7 +43,8 @@ public class SharedPrefManager {
                 sharedPreferences.getString("DESIGNATION", null),
                 sharedPreferences.getString("SELF", null),
                 sharedPreferences.getString("EDU", null),
-                sharedPreferences.getString("SKILL", null));
+                sharedPreferences.getString("SKILL", null),
+                sharedPreferences.getString("DISPLAY_IMAGE", null));
     }
 
 }
