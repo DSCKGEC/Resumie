@@ -1,18 +1,16 @@
 package com.example.resumie;
 
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +25,7 @@ import com.example.resumie.SideNavigation.MenuUtil;
 import com.example.resumie.home.HomeFragment;
 import com.example.resumie.portfolio.PortfolioFragment;
 import com.example.resumie.team.TeamFragment;
+import com.google.android.material.textview.MaterialTextView;
 
 import java.util.List;
 
@@ -97,22 +96,30 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
                         if (item.getTitle().equals("Upload new image")) {
                             Intent intent = new Intent();
                             intent.setType("image/*");
-                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
                             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
                         } else if (item.getTitle().equals("Display Profile Photo")) {
 
-                            ActivityCompat.requestPermissions(MainActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+                            View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.item_profile_image, null);
+                            ImageView imageView = view.findViewById(R.id.profile_image);
+                            MaterialTextView materialTextView = view.findViewById(R.id.materialTextView);
+
+                            if (sharedPrefManager.getHomeData().getName() == null)
+                                materialTextView.setText("UserName");
+                            else
+                                materialTextView.setText(sharedPrefManager.getHomeData().getName());
 
 
-                            ImageView image = new ImageView(MainActivity.this);
-                            image.setImageURI(Uri.parse(sharedPrefManager.getHomeData().getProfileImage()));
+                            if (sharedPrefManager.getHomeData().getProfileImage() == null)
+                                imageView.setImageResource(R.drawable.user);
+                            else {
+                                Uri uri = Uri.parse(sharedPrefManager.getHomeData().getProfileImage());
+                                imageView.setImageURI(uri);
+                            }
 
-                            AlertDialog.Builder aDialog = new AlertDialog.Builder(MainActivity.this);
-
-                            aDialog.setView(image);
-                            aDialog.create();
-                            aDialog.show();
-
+                            AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+                            adb.setView(view);
+                            adb.show();
 
                         } else if (item.getTitle().equals("Cancel")) {
                             popup.dismiss();
