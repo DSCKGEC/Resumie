@@ -1,15 +1,16 @@
 package com.example.resumie;
 
 
-import android.content.ContentProvider;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -17,13 +18,14 @@ import com.bumptech.glide.Glide;
 import com.example.resumie.CV.CVFragment;
 import com.example.resumie.PDF.PDFFragment;
 import com.example.resumie.SharedPrefManager.SharedPrefManager;
+import com.example.resumie.SideNavigation.ClickedCallback;
 import com.example.resumie.SideNavigation.MenuAdapter;
 import com.example.resumie.SideNavigation.MenuItem;
 import com.example.resumie.SideNavigation.MenuUtil;
 import com.example.resumie.home.HomeFragment;
 import com.example.resumie.portfolio.PortfolioFragment;
 import com.example.resumie.team.TeamFragment;
-import com.example.resumie.SideNavigation.ClickedCallback;
+import com.google.android.material.textview.MaterialTextView;
 
 import java.util.List;
 
@@ -33,7 +35,7 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
     RecyclerView recyclerView;
     MenuAdapter menuAdapter;
     List<MenuItem> menu;
-    int selectedMenuPosition=0;
+    int selectedMenuPosition = 0;
     private int PICK_IMAGE = 13;
 
     SharedPrefManager sharedPrefManager;
@@ -49,15 +51,12 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
         setHomeFragment();
 
 
-        if(sharedPrefManager.getHomeData()!=null && sharedPrefManager.getHomeData().getProfileImage()!=null)
-        {
+        if (sharedPrefManager.getHomeData() != null && sharedPrefManager.getHomeData().getProfileImage() != null) {
             Glide.with(this)
                     .load(sharedPrefManager.getHomeData().getProfileImage())
                     .centerCrop()
                     .into(imageView2);
-        }
-        else
-        {
+        } else {
             Glide.with(this)
                     .load(R.drawable.user)
                     .centerCrop()
@@ -69,8 +68,8 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
         recyclerView = findViewById(R.id.recyclerview_nav);
         imageView2 = findViewById(R.id.imageView2);
 
-        menu= MenuUtil.getMenuList();
-        menuAdapter=new MenuAdapter(menu,this);
+        menu = MenuUtil.getMenuList();
+        menuAdapter = new MenuAdapter(menu, this);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(menuAdapter);
 
@@ -90,22 +89,39 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
                 popup.getMenu().add("Cancel");
 
 
-
-
                 popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
                     @Override
                     public boolean onMenuItemClick(android.view.MenuItem item) {
 
-                        if(item.getTitle().equals("Upload new image"))
-                        {
+                        if (item.getTitle().equals("Upload new image")) {
                             Intent intent = new Intent();
                             intent.setType("image/*");
-                            intent.setAction(Intent.ACTION_GET_CONTENT);
+                            intent.setAction(Intent.ACTION_OPEN_DOCUMENT);
                             startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE);
-                        }
+                        } else if (item.getTitle().equals("Display Profile Photo")) {
 
-                        else if(item.getTitle().equals("Cancel"))
-                        {
+                            View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.item_profile_image, null);
+                            ImageView imageView = view.findViewById(R.id.profile_image);
+                            MaterialTextView materialTextView = view.findViewById(R.id.materialTextView);
+
+                            if (sharedPrefManager.getHomeData().getName() == null)
+                                materialTextView.setText("UserName");
+                            else
+                                materialTextView.setText(sharedPrefManager.getHomeData().getName());
+
+
+                            if (sharedPrefManager.getHomeData().getProfileImage() == null)
+                                imageView.setImageResource(R.drawable.user);
+                            else {
+                                Uri uri = Uri.parse(sharedPrefManager.getHomeData().getProfileImage());
+                                imageView.setImageURI(uri);
+                            }
+
+                            AlertDialog.Builder adb = new AlertDialog.Builder(MainActivity.this);
+                            adb.setView(view);
+                            adb.show();
+
+                        } else if (item.getTitle().equals("Cancel")) {
                             popup.dismiss();
                         }
                         return false;
@@ -113,7 +129,6 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
                 });
 
                 popup.show();
-
 
 
             }
@@ -129,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
 
             String str = data.getData().toString();
 
-            sharedPrefManager.setHomeData(str,6);
+            sharedPrefManager.setHomeData(str, 6);
 
             Glide.with(this)
                     .load(str)
@@ -139,24 +154,24 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
     }
 
 
-    void setPortfolioFragment(){
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new PortfolioFragment()).commit();
+    void setPortfolioFragment() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new PortfolioFragment()).commit();
     }
 
-    void setCVFragment(){
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new CVFragment()).commit();
+    void setCVFragment() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new CVFragment()).commit();
     }
 
-    void setHomeFragment(){
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new HomeFragment()).commit();
+    void setHomeFragment() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new HomeFragment()).commit();
     }
 
-    void setTeamFragment(){
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new TeamFragment()).commit();
+    void setTeamFragment() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new TeamFragment()).commit();
     }
 
-    void setPDFFragment(){
-        getSupportFragmentManager().beginTransaction().replace(R.id.container,new PDFFragment()).commit();
+    void setPDFFragment() {
+        getSupportFragmentManager().beginTransaction().replace(R.id.container, new PDFFragment()).commit();
     }
 
     @Override
@@ -164,22 +179,28 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
 
         switch (menu.get(i).getCode()) {
 
-            case MenuUtil.HOME_FRAGMENT : setHomeFragment();
+            case MenuUtil.HOME_FRAGMENT:
+                setHomeFragment();
                 break;
-            case MenuUtil.CV_FRAGMENT : setCVFragment();
+            case MenuUtil.CV_FRAGMENT:
+                setCVFragment();
                 break;
-            case MenuUtil.TEAM_FRAGMENT: setTeamFragment();
+            case MenuUtil.TEAM_FRAGMENT:
+                setTeamFragment();
                 break;
-            case MenuUtil.PORTFOLIO_FRAGMENT: setPortfolioFragment();
+            case MenuUtil.PORTFOLIO_FRAGMENT:
+                setPortfolioFragment();
                 break;
-            case MenuUtil.PDF_FRAGMENT: setPDFFragment();
+            case MenuUtil.PDF_FRAGMENT:
+                setPDFFragment();
                 break;
-            default: setHomeFragment();
+            default:
+                setHomeFragment();
         }
 
         menu.get(selectedMenuPosition).setSelected(false);
         menu.get(i).setSelected(true);
-        selectedMenuPosition = i ;
+        selectedMenuPosition = i;
         menuAdapter.notifyDataSetChanged();
 
     }

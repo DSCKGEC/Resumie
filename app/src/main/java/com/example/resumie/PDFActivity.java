@@ -64,7 +64,8 @@ public class PDFActivity extends AppCompatActivity {
         
         
         
-        ActivityCompat.requestPermissions(PDFActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
+        ActivityCompat.requestPermissions(PDFActivity.this, new String[]{Manifest.permission.READ_EXTERNAL_STORAGE
+                , Manifest.permission.WRITE_EXTERNAL_STORAGE}, PackageManager.PERMISSION_GRANTED);
 
         button.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("RestrictedApi")
