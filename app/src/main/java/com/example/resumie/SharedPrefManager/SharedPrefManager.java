@@ -47,4 +47,17 @@ public class SharedPrefManager {
                 sharedPreferences.getString("DISPLAY_IMAGE", null));
     }
 
+
+    public void setUserIntro(String str){
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        editor = sharedPreferences.edit();
+        editor.putString("BRIEF_INTRO",str);
+        editor.apply();
+    }
+
+    public String getUserIntro()
+    {
+        sharedPreferences = context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE);
+        return sharedPreferences.getString("BRIEF_INTRO",null);
+    }
 }

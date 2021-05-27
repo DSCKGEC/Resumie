@@ -1,11 +1,15 @@
 package com.example.resumie;
 
 
+import android.content.ContentResolver;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.DocumentsContract;
+import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
@@ -27,6 +31,12 @@ import com.example.resumie.portfolio.PortfolioFragment;
 import com.example.resumie.team.TeamFragment;
 import com.google.android.material.textview.MaterialTextView;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements ClickedCallback {
@@ -36,9 +46,8 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
     MenuAdapter menuAdapter;
     List<MenuItem> menu;
     int selectedMenuPosition = 0;
-    private int PICK_IMAGE = 13;
-
     SharedPrefManager sharedPrefManager;
+    private int PICK_IMAGE = 13;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,16 +149,41 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK) {
+        if (requestCode == PICK_IMAGE && resultCode == RESULT_OK && null != data) {
 
             String str = data.getData().toString();
 
-            sharedPrefManager.setHomeData(str, 6);
+            System.out.println("The data is " + data);
+            String[] filePathColumn = {MediaStore.Images.Media.DATA};
+            System.out.println(filePathColumn);
+            if (data.getData() != null) {
 
-            Glide.with(this)
-                    .load(str)
-                    .centerCrop()
-                    .into(imageView2);
+                Uri mUri = data.getData();
+                System.out.println("The Uri is " + mUri);
+                String ext = GetFileExtension(mUri);
+                System.out.println("The extension is " + ext);
+                String id = DocumentsContract.getDocumentId(mUri);
+                System.out.println(id);
+                InputStream inputStream = null;
+                try {
+                    inputStream = getContentResolver().openInputStream(mUri);
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
+                File file = new File(getCacheDir().getAbsolutePath() + "/" + id + "." + ext);
+                System.out.println(file);
+                writeFile(inputStream, file);
+                String filePath = file.getAbsolutePath();
+                System.out.println("The filepath is " + filePath);
+
+                sharedPrefManager.setHomeData(filePath, 6);
+
+                Glide.with(this)
+                        .load(str)
+                        .centerCrop()
+                        .into(imageView2);
+            }
+
         }
     }
 
@@ -203,5 +237,40 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
         selectedMenuPosition = i;
         menuAdapter.notifyDataSetChanged();
 
+    }
+
+
+    // writing the file
+    private void writeFile(InputStream inputStream, File file) {
+        OutputStream out = null;
+        try {
+            out = new FileOutputStream(file);
+            byte[] buf = new byte[1024];
+            int len;
+            while ((len = inputStream.read(buf)) > 0) {
+                out.write(buf, 0, len);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (out != null) {
+                    out.close();
+                }
+                inputStream.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+    // getting the file extension of the selected file
+    public String GetFileExtension(Uri uri) {
+        ContentResolver contentResolver = getContentResolver();
+        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
+
+        // Return file Extension
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 }
