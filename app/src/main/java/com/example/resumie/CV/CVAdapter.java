@@ -3,6 +3,7 @@ package com.example.resumie.CV;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -31,6 +32,14 @@ public class CVAdapter extends RecyclerView.Adapter<CVAdapter.CVViewHolder> {
     public void onBindViewHolder(@NonNull CVViewHolder holder, int position) {
     holder.Cvtilte.setText(mdata.get(position).getTitle());
     holder.CvDescription.setText(mdata.get(position).getDescription());
+
+        holder.imageView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mdata.remove(position);
+                notifyDataSetChanged();
+            }
+        });
     }
 
     @Override
@@ -40,11 +49,13 @@ public class CVAdapter extends RecyclerView.Adapter<CVAdapter.CVViewHolder> {
 
     public static class CVViewHolder extends RecyclerView.ViewHolder{
         TextView Cvtilte,CvDescription;
+        ImageView imageView;
 
     public CVViewHolder(@NonNull View itemView) {
         super(itemView);
         Cvtilte=itemView.findViewById(R.id.cv_title);
         CvDescription=itemView.findViewById(R.id.cv_description);
+        imageView = itemView.findViewById(R.id.remove_image);
     }
 
   }
