@@ -30,9 +30,6 @@ public class CVAdapter extends RecyclerView.Adapter<CVAdapter.CVViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull CVViewHolder holder, int position) {
-    holder.Cvtilte.setText(mdata.get(position).getTitle());
-    holder.CvDescription.setText(mdata.get(position).getDescription());
-
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
