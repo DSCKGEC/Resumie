@@ -14,7 +14,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.example.resumie.R;
+import com.example.resumie.SharedPrefManager.SharedPrefManager;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.gson.Gson;
 import org.json.JSONException;
@@ -27,8 +30,10 @@ public class CVFragment extends Fragment {
 
     RecyclerView recyclerView;
     CVAdapter cvAdapter;
-    List<CVitem> items;
+    ArrayList<CVitem> items;
     FloatingActionButton fab;
+
+    SharedPrefManager sharedPrefManager;
 
     public CVFragment() {
         // Required empty public constructor
@@ -39,6 +44,9 @@ public class CVFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         recyclerView = view.findViewById(R.id.recyclerview_cv);
         items=new ArrayList<>();
+
+        sharedPrefManager = new SharedPrefManager(getActivity());
+        addingCVItems();
 
         cvAdapter=new CVAdapter(items);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
@@ -68,8 +76,9 @@ public class CVFragment extends Fragment {
                                     jsonObject.put("title", title.getText().toString());
                                     jsonObject.put("description", description.getText().toString());
                                     CVitem cVitem = gson.fromJson(String.valueOf(jsonObject), CVitem.class);
-                                    items.add(cVitem);
-                                    cvAdapter.notifyDataSetChanged();
+                                    items.add(items.size(), cVitem);
+                                    cvAdapter.notifyItemInserted(items.size());
+
 
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -94,4 +103,26 @@ public class CVFragment extends Fragment {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_c_v, container, false);
     }
+
+
+
+    private void addingCVItems() {
+
+        if(sharedPrefManager.getUserPortFolio() == null){
+            items.add(new CVitem("Your Experience Heading","Describe your experience here"));
+            return;
+        }
+
+
+        items = sharedPrefManager.getUserPortFolio();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        sharedPrefManager.setUserPortfolio(items);
+        //Toast.makeText(getActivity(),"Saved "+ items.size() ,Toast.LENGTH_SHORT).show();
+    }
+
 }
