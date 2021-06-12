@@ -2,17 +2,21 @@ package com.example.resumie;
 
 
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.DocumentsContract;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
 import android.widget.PopupMenu;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -49,10 +53,14 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
     SharedPrefManager sharedPrefManager;
     private int PICK_IMAGE = 13;
 
+    public static final String TAG = "TAGMainActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Log.i(TAG, "onCreate: ");
 
         setSideNavigation();
         sharedPrefManager = new SharedPrefManager(this);
@@ -273,4 +281,59 @@ public class MainActivity extends AppCompatActivity implements ClickedCallback {
         // Return file Extension
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.i(TAG, "onPause: ");
+
+    }
+
+    @Override
+    public void onDestroy() {
+        Log.i(TAG, "onDestroy: ");
+        super.onDestroy();
+    }
+
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.i(TAG, "onStop: ");
+    }
+
+
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.i(TAG, "onStart: ");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.i(TAG, "onResume: ");
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        Log.i(TAG, "onRestoreInstanceState: ");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.i(TAG, "onRestart: ");
+    }
+
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        Log.i(TAG, "onSaveInstanceState: ");
+    }
+
+
 }
