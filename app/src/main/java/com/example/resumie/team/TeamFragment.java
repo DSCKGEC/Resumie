@@ -51,6 +51,7 @@ public class TeamFragment extends Fragment {
         recyclerView = view.findViewById(R.id.recyclerview_team);
         items=new ArrayList<>();
         items.add(new TeamItem(getString(R.string.Adrishyantee),getString(R.string.Adridescription),R.drawable.adri));
+        items.add(new TeamItem("Mahmood Ahmad","Simply an Android nerd",R.drawable.download));
         teamAdapter=new TeamAdapter(items);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
         recyclerView.setAdapter(teamAdapter);
