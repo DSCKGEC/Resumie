@@ -52,6 +52,7 @@ public class TeamFragment extends Fragment {
         items=new ArrayList<>();
         items.add(new TeamItem(getString(R.string.Adrishyantee),getString(R.string.Adridescription),R.drawable.adri));
         items.add(new TeamItem("Mahmood Ahmad","Simply an Android nerd",R.drawable.download));
+        items.add(new TeamItem("Chirag Ghosh","Fixed the colour scheme and fixed the PDF activity",R.drawable.chirag));
         teamAdapter=new TeamAdapter(items);
         recyclerView.setLayoutManager(new LinearLayoutManager((getContext())));
         recyclerView.setAdapter(teamAdapter);
