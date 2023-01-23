@@ -1,34 +1,40 @@
+<!-- This is an Android XML layout file for a ConstraintLayout -->
+
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android" 
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".PDF.PDFFragment"
-    android:background="@color/background_light">
+    tools:context=".PDF.PDFFragment" <!-- The layout is using the layout file located in the package ".PDF.PDFFragment" -->
+    android:background="@color/background_light"> <!-- The layout has a background color of "background_light" -->
 
 
+<!-- The layout includes two buttons, "pdfcreator" and "button" -->
+
+<!-- This (first) button has text "create_pdf" and when clicked, it creates a pdf -->
     <Button
-        android:id="@+id/pdfcreator"
+        android:id="@+id/pdfcreator" 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="16dp" <!-- The buttons are positioned at the top of the layout with 16dp margin from the start and end edges, respectively -->
         android:layout_marginTop="32dp"
-        android:text="@string/create_pdf"
-        android:textColor="@color/grey"
-        android:backgroundTint="@color/my_yellow"
+        android:text="@string/create_pdf" <!-- it creates a pdf -->
+        android:textColor="@color/grey" <!-- The layout has a text color of the buttons is "grey" -->
+        android:backgroundTint="@color/my_yellow" <!-- The background tint of the buttons is "my_yellow" -->
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+<!-- This (second) button has text "go_back" and when clicked, it goes back to the previous page -->
     <Button
-        android:id="@+id/button"
+        android:id="@+id/button" 
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/go_back"
-        android:textColor="@color/grey"
-        android:backgroundTint="@color/my_yellow"
+        android:layout_marginEnd="16dp" <!-- The buttons are positioned at the top of the layout with 16dp margin from the start and end edges, respectively -->
+        android:text="@string/go_back" <!-- it goes back to the previous page -->
+        android:textColor="@color/grey" <!-- The layout has a text color of the buttons is "grey" -->
+        android:backgroundTint="@color/my_yellow" <!-- The background tint of the buttons is "my_yellow" -->
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
